@@ -16,14 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^login/$', views.my_login, name='login'),
-    url(r'^signup/$', views.signup, name='signup'),
-    url(r'^question/(?P<id>\d+)/$', views.question, name='question'),
-    url(r'^ask/$', views.ask, name='ask'),
-    url(r'^popular/$', views.popular, name='popular'),
-    url(r'^new/$', views.index, name='new'),
-    url(r'^answer/$', views.answer, name='answer'),
-]
+urlpatterns = patterns('qa.views',                                              
+   url(r'^$', 'test'),                                                              
+   url(r'^login/.*$', 'test', name='login'),                                    
+   url(r'^signup/.*', 'test', name='signup'),                                   
+   url(r'^question/(?P<id>[0-9]+)/$', 'test', name='question'),                 
+   url(r'^ask/.*', 'test', name='ask'),                                         
+   url(r'^popular/.*', 'test', name='popular'),                                 
+   url(r'^new/.*', 'test', name='new'),
+)
